@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+    var tableView = UICollectionViewController()
 class PhotosCollectionViewController: UICollectionViewController {
     var photos: [Photo]!
     
@@ -16,8 +16,12 @@ class PhotosCollectionViewController: UICollectionViewController {
 
         let api = InstagramAPI()
         api.loadPhotos(didLoadPhotos)
-        // FILL ME IN
+        
+        
+        //FILL THIS IN
+        
     }
+    
 
     /* 
      * IMPLEMENT ANY COLLECTION VIEW DELEGATE METHODS YOU FIND NECESSARY
@@ -26,7 +30,13 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     /* Creates a session from a photo's url to download data to instantiate a UIImage. 
        It then sets this as the imageView's image. */
+    
     func loadImageForCell(photo: Photo, imageView: UIImageView) {
+        
+        //FILL THIS IN
+        imageView.image = photo
+        
+        
         
     }
     
@@ -35,6 +45,25 @@ class PhotosCollectionViewController: UICollectionViewController {
         self.photos = photos
         self.collectionView!.reloadData()
     }
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell!
+        return cell
+        
+    }
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        if w.cellForItemAtIndexPath(indexPath) != nil {
+//
+//        }
+    }
     
 }
 
+
+//
+//PhotosCollectionViewController.swift - Collection View of Photos
+//One photo per cell
+//You must implement any necessary delegate methods
+//You must implement loadImageForCell
